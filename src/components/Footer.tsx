@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, FormEvent } from "react";
 import {
   Facebook,
   Instagram,
@@ -9,12 +9,13 @@ import {
   Podcast,
   ArrowRight,
 } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleSubscribe = (e: any) => {
+  const handleSubscribe = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle subscription logic here
     console.log("Subscribe:", { email, isChecked });
@@ -99,7 +100,13 @@ const Footer = () => {
 
           {/* Company Info */}
           <div className="space-y-6">
-            <img src="/api/placeholder/150/40" alt="Forcythe" className="h-8" />
+            <Image
+              src="/api/placeholder/150/40"
+              alt="Forcythe"
+              width={150}
+              height={32}
+              className="h-8 w-auto"
+            />
             <p className="text-gray-400 leading-relaxed">
               We are the growth company for businesses looking to scale. We are
               dedicated to transforming businesses with bespoke digital

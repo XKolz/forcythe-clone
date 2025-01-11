@@ -1,5 +1,7 @@
 "use client";
+import Image from "next/image";
 import React, { useState, useEffect } from "react";
+// Image
 
 const testimonials = [
   {
@@ -120,7 +122,15 @@ const TestimonialTabs = () => {
               <h3 className="text-2xl font-semibold text-white">
                 {testimonials[activeIndex].company}
               </h3>
-              <p className="text-gray-300 leading-relaxed min-h-[200px]">
+              {/* <p className="text-gray-300 leading-relaxed min-h-[200px]">
+                {displayText}
+              </p> */}
+              {/* // Add a CSS class or disable interactions based on animation state */}
+              <p
+                className={`text-gray-300 leading-relaxed min-h-[200px] ${
+                  isAnimating ? "animate-pulse" : ""
+                }`}
+              >
                 {displayText}
               </p>
               <div className="flex items-center space-x-4">
@@ -133,7 +143,7 @@ const TestimonialTabs = () => {
               </div>
             </div>
             <div className="relative">
-              <img
+              <Image
                 src={testimonials[activeIndex].image}
                 alt={testimonials[activeIndex].author}
                 className="w-full h-[400px] object-cover rounded-2xl"

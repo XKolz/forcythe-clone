@@ -1,41 +1,53 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 
-const CountUpNumber = ({ end, duration = 2000, suffix = "" }: any) => {
-  const [count, setCount] = useState(0);
-  const countRef = useRef(null);
+interface CountUpNumberProps {
+  end: number;
+  duration?: number;
+  suffix?: string;
+}
+
+const CountUpNumber: React.FC<CountUpNumberProps> = ({
+  end,
+  duration = 2000,
+  suffix = "",
+}) => {
+  const [count, setCount] = useState<number>(0);
+  const countRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
+    let timer: NodeJS.Timeout;
+    const currentElement = countRef.current; // Store ref value
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
           const startTime = Date.now();
-          const timer = setInterval(() => {
+          timer = setInterval(() => {
             const timePassed = Date.now() - startTime;
             if (timePassed >= duration) {
               setCount(end);
               clearInterval(timer);
               return;
             }
-
             const progress = timePassed / duration;
             setCount(Math.floor(end * progress));
           }, 16);
-
-          return () => clearInterval(timer);
         }
       },
       { threshold: 0.1 }
     );
 
-    if (countRef.current) {
-      observer.observe(countRef.current);
+    if (currentElement) {
+      observer.observe(currentElement);
     }
 
     return () => {
-      if (countRef.current) {
-        observer.unobserve(countRef.current);
+      clearInterval(timer);
+      if (currentElement) {
+        observer.unobserve(currentElement);
       }
+      observer.disconnect();
     };
   }, [end, duration]);
 
@@ -47,8 +59,14 @@ const CountUpNumber = ({ end, duration = 2000, suffix = "" }: any) => {
   );
 };
 
-const StatsSection = () => {
-  const stats = [
+interface StatItem {
+  value: number;
+  label: string;
+  suffix: string;
+}
+
+const StatsSection: React.FC = () => {
+  const stats: StatItem[] = [
     { value: 50, label: "Clients", suffix: "+" },
     { value: 120, label: "Projects", suffix: "+" },
     { value: 10, label: "Team Leads", suffix: "+" },
@@ -74,7 +92,6 @@ const StatsSection = () => {
           />
         </svg>
       </div>
-
       <div className="max-w-7xl mx-auto px-4 text-center">
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-20 max-w-4xl mx-auto leading-tight">
@@ -82,7 +99,6 @@ const StatsSection = () => {
           <span className="text-blue-400">businesses</span> of all sizes to{" "}
           <span className="text-blue-400">scale</span>
         </h2>
-
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
           {stats.map((stat, index) => (

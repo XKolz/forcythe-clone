@@ -1,7 +1,17 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
-const BlogCard = ({ image, category, date, title, author }: any) => {
+type Blog = {
+  image: string;
+  category: string;
+  date: string;
+  title: string;
+  author: string;
+};
+
+// const BlogCard = ({ image, category, date, title, author }) => {
+const BlogCard: React.FC<Blog> = ({ image, category, date, title, author }) => {
   return (
     <div className="group relative rounded-2xl bg-[#0F172A] overflow-hidden transition-all duration-300 hover:-translate-y-1">
       {/* Border gradient overlay */}
@@ -9,19 +19,22 @@ const BlogCard = ({ image, category, date, title, author }: any) => {
 
       {/* Image container with zoom effect */}
       <div className="relative w-full aspect-[2/1] overflow-hidden">
-        <img
+        <Image
           src={image}
           alt={title}
-          className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+          fill
+          className="object-cover transform transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-black/20" />
 
         {/* Logo overlay */}
         <div className="absolute top-4 left-4">
-          <img
-            src="https://picsum.photos/200"
+          <Image
+            src="/api/placeholder/200/200"
             alt="Forcythe Logo"
-            className="h-6"
+            width={24}
+            height={24}
+            className="h-6 w-auto"
           />
         </div>
       </div>
@@ -44,8 +57,10 @@ const BlogCard = ({ image, category, date, title, author }: any) => {
   );
 };
 
-const BlogSection = () => {
-  const blogs = [
+// const BlogSection = () => {
+const BlogSection: React.FC = () => {
+  //   const blogs = [
+  const blogs: Blog[] = [
     {
       image: "https://picsum.photos/200",
       category: "Blog",

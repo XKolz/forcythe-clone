@@ -1,8 +1,15 @@
 "use client";
 import React from "react";
-import { Layers } from "lucide-react";
+// import { Layers, Lucid } from "lucide-react";
+import { Layers, LucideIcon } from "lucide-react";
+interface Feature {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
 
-const FeatureCard = ({ title, description, icon: Icon }: any) => {
+// const FeatureCard = ({ title, description, icon: Icon }) => {
+const FeatureCard: React.FC<Feature> = ({ title, description, icon: Icon }) => {
   return (
     <div className="relative group">
       {/* Animated border effect */}
@@ -24,8 +31,8 @@ const FeatureCard = ({ title, description, icon: Icon }: any) => {
   );
 };
 
-const FeatureSection = () => {
-  const features = [
+const FeatureSection: React.FC = () => {
+  const features: Feature[] = [
     {
       title: "Experience",
       description:

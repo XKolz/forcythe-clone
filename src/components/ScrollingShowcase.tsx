@@ -1,4 +1,6 @@
+import Image from "next/image";
 import React from "react";
+// Image
 
 const ScrollingShowcase = () => {
   // Sample project data - replace with your actual projects
@@ -36,7 +38,7 @@ const ScrollingShowcase = () => {
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
           Success in <span className="text-blue-400">Motion</span> - Our
-          clients' journey
+          clients&apos; journey
         </h2>
       </div>
 
@@ -49,7 +51,7 @@ const ScrollingShowcase = () => {
               key={project.id}
               className="w-[300px] md:w-[400px] flex-shrink-0 rounded-lg overflow-hidden"
             >
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
                 className="w-full h-[200px] md:h-[250px] object-cover"
@@ -62,7 +64,7 @@ const ScrollingShowcase = () => {
               key={`${project.id}-duplicate`}
               className="w-[300px] md:w-[400px] flex-shrink-0 rounded-lg overflow-hidden"
             >
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
                 className="w-full h-[200px] md:h-[250px] object-cover"
@@ -81,7 +83,7 @@ const ScrollingShowcase = () => {
               key={`${project.id}-second`}
               className="w-[300px] md:w-[400px] flex-shrink-0 rounded-lg overflow-hidden"
             >
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
                 className="w-full h-[200px] md:h-[250px] object-cover"
@@ -94,7 +96,7 @@ const ScrollingShowcase = () => {
               key={`${project.id}-second-duplicate`}
               className="w-[300px] md:w-[400px] flex-shrink-0 rounded-lg overflow-hidden"
             >
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
                 className="w-full h-[200px] md:h-[250px] object-cover"
