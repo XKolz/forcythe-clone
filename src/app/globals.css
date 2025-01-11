@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -18,4 +18,148 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+} */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media screen and (max-width: 1366px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 70%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 65%;
+  }
+}
+
+.move-in {
+  animation: move-in 0.2s ease-in-out forwards;
+}
+@keyframes move-in {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+input:not([type="checkbox"]) {
+  transition: all 0.4s;
+  outline: 0;
+}
+input:not([type="checkbox"]):focus {
+  outline: 0;
+  border-color: #ff6642;
+}
+/* Hide increment buttons in most browsers */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+@-moz-document url-prefix() {
+  html,
+  * {
+    scrollbar-color: #ff6642 transparent; /* Thumb (active area) color, Track color */
+    scrollbar-width: thin; /* Makes the scrollbar less obvious initially */
+  }
+}
+
+/* Altaria's custom scrollbar, finally!, hehe */
+html::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  width: 0.2vw !important;
+}
+html::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+  background-color: #ff654250 !important;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.4s !important;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #ff6642 !important;
+}
+
+html::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+/* anchor  */
+[popover] {
+  inset: unset;
+  bottom: anchor(top);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+#imgSkeleton {
+  background-color: #80808057;
+  animation: pulse-two 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-two {
+  50% {
+    opacity: 0.5;
+  }
+}
+.animate-pulse-two {
+  animation: pulse-two 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
