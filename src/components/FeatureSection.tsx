@@ -1,14 +1,8 @@
 "use client";
 import React from "react";
-// import { Layers, Lucid } from "lucide-react";
-import { Layers, LucideIcon } from "lucide-react";
-interface Feature {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-}
+import { Layers } from "lucide-react";
+import { Feature } from "../types/FeatureCard";
 
-// const FeatureCard = ({ title, description, icon: Icon }) => {
 const FeatureCard: React.FC<Feature> = ({ title, description, icon: Icon }) => {
   return (
     <div className="relative group">

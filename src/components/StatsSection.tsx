@@ -1,11 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-
-interface CountUpNumberProps {
-  end: number;
-  duration?: number;
-  suffix?: string;
-}
+import { CountUpNumberProps, StatItem } from "../types/StatsSection";
 
 const CountUpNumber: React.FC<CountUpNumberProps> = ({
   end,
@@ -58,12 +53,6 @@ const CountUpNumber: React.FC<CountUpNumberProps> = ({
     </span>
   );
 };
-
-interface StatItem {
-  value: number;
-  label: string;
-  suffix: string;
-}
 
 const StatsSection: React.FC = () => {
   const stats: StatItem[] = [

@@ -1,24 +1,3 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-} */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -70,7 +49,7 @@ input:not([type="checkbox"]) {
 }
 input:not([type="checkbox"]):focus {
   outline: 0;
-  border-color: #ff6642;
+  border-color: #020817;
 }
 /* Hide increment buttons in most browsers */
 input[type="number"]::-webkit-inner-spin-button,
@@ -88,7 +67,7 @@ input[type="number"] {
 @-moz-document url-prefix() {
   html,
   * {
-    scrollbar-color: #ff6642 transparent; /* Thumb (active area) color, Track color */
+    scrollbar-color: #020817 transparent; /* Thumb (active area) color, Track color */
     scrollbar-width: thin; /* Makes the scrollbar less obvious initially */
   }
 }
@@ -106,7 +85,7 @@ html::-webkit-scrollbar-thumb,
   transition: all 0.4s !important;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #ff6642 !important;
+  background-color: #020817 !important;
 }
 
 html::-webkit-scrollbar-track,

@@ -11,7 +11,7 @@ const stages = [
     description:
       "Transform your innovative ideas into actionable plans. We help refine and validate your concept, ensuring it addresses real market needs.",
     image: {
-      src: "https://picsum.photos/200",
+      src: "../svg/idea.svg",
       alt: "Ideation Phase Illustration",
       elements: [
         {
@@ -39,7 +39,7 @@ const stages = [
     description:
       "Create intuitive and engaging user experiences. Our design process focuses on both aesthetics and functionality to captivate your audience.",
     image: {
-      src: "https://picsum.photos/200",
+      src: "../svg/design.svg",
       alt: "Design Phase Illustration",
       elements: [
         {
@@ -67,7 +67,7 @@ const stages = [
     description:
       "Turn designs into robust, scalable solutions using cutting-edge technology and best development practices.",
     image: {
-      src: "https://picsum.photos/200",
+      src: "../svg/develop.svg",
       alt: "Development Phase Illustration",
       elements: [
         {
@@ -95,7 +95,7 @@ const stages = [
     description:
       "Launch your product with confidence. We ensure a smooth deployment and provide ongoing support for continuous growth.",
     image: {
-      src: "https://picsum.photos/200",
+      src: "../svg/launch.svg",
       alt: "Launch Phase Illustration",
       elements: [
         {
@@ -170,40 +170,26 @@ const ProcessFlow = () => {
 
           {/* Right Illustration */}
           <div className="relative">
-            <div className="aspect-[4/3] relative overflow-hidden rounded-3xl bg-[#0F172A] p-8">
-              {/* Decorative elements specific to current stage */}
-              <div className="absolute inset-0">
-                {currentStage.image.elements.map((element) => (
-                  <div key={element.id} className={element.className} />
-                ))}
-              </div>
+            {/* Decorative elements specific to current stage */}
+            <div className="absolute inset-0">
+              {currentStage.image.elements.map((element) => (
+                <div key={element.id} className={element.className} />
+              ))}
+            </div>
 
-              {/* Main illustration with fade transition */}
-              <div className="relative h-full flex items-center justify-center transition-opacity duration-300">
-                <Image
-                  src={currentStage.image.src}
-                  alt={currentStage.image.alt}
-                  width={200}
-                  height={200}
-                  className="rounded-2xl transition-all duration-300"
-                  priority={activeIndex === 0}
-                />
-              </div>
+            {/* Main illustration with fade transition */}
+            <div className="relative h-full flex items-center justify-center transition-opacity duration-300">
+              <Image
+                src={currentStage.image.src}
+                alt={currentStage.image.alt}
+                width={400}
+                height={400}
+                className="rounded-2xl transition-all duration-300"
+                priority={activeIndex === 0}
+              />
             </div>
           </div>
         </div>
-
-        {/* Additional Info */}
-        {/* <div className="mt-16">
-          <h3 className="text-3xl font-bold text-white mb-4">
-            Your launchpad to the market.
-          </h3>
-          <p className="text-gray-400 max-w-2xl">
-            Launching is just the beginning, we ensure your product makes a
-            splash and keeps making waves, ensuring a continual customer
-            acquisition.
-          </p>
-        </div> */}
       </div>
     </section>
   );

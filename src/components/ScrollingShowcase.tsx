@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-// Image
 
 const ScrollingShowcase = () => {
   // Sample project data - replace with your actual projects
@@ -55,6 +54,8 @@ const ScrollingShowcase = () => {
                 src={project.image}
                 alt={project.title}
                 className="w-full h-[200px] md:h-[250px] object-cover"
+                width={200}
+                height={200}
               />
             </div>
           ))}
@@ -68,6 +69,8 @@ const ScrollingShowcase = () => {
                 src={project.image}
                 alt={project.title}
                 className="w-full h-[200px] md:h-[250px] object-cover"
+                width={200}
+                height={200}
               />
             </div>
           ))}
@@ -87,6 +90,8 @@ const ScrollingShowcase = () => {
                 src={project.image}
                 alt={project.title}
                 className="w-full h-[200px] md:h-[250px] object-cover"
+                width={200}
+                height={200}
               />
             </div>
           ))}
@@ -100,6 +105,8 @@ const ScrollingShowcase = () => {
                 src={project.image}
                 alt={project.title}
                 className="w-full h-[200px] md:h-[250px] object-cover"
+                width={200}
+                height={200}
               />
             </div>
           ))}

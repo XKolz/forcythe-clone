@@ -1,16 +1,9 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { Blog } from "../types/Blog";
+import SVGClient from "./SVGClient";
 
-type Blog = {
-  image: string;
-  category: string;
-  date: string;
-  title: string;
-  author: string;
-};
-
-// const BlogCard = ({ image, category, date, title, author }) => {
 const BlogCard: React.FC<Blog> = ({ image, category, date, title, author }) => {
   return (
     <div className="group relative rounded-2xl bg-[#0F172A] overflow-hidden transition-all duration-300 hover:-translate-y-1">
@@ -22,20 +15,16 @@ const BlogCard: React.FC<Blog> = ({ image, category, date, title, author }) => {
         <Image
           src={image}
           alt={title}
-          fill
+          // fill
+          width={400}
+          height={200}
           className="object-cover transform transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-black/20" />
 
         {/* Logo overlay */}
-        <div className="absolute top-4 left-4">
-          <Image
-            src="/api/placeholder/200/200"
-            alt="Forcythe Logo"
-            width={24}
-            height={24}
-            className="h-6 w-auto"
-          />
+        <div className="absolute top-4 left-28">
+          <SVGClient src="../svg/logo.svg" />
         </div>
       </div>
 

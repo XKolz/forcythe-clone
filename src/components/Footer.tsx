@@ -9,7 +9,7 @@ import {
   Podcast,
   ArrowRight,
 } from "lucide-react";
-import Image from "next/image";
+import SVGClient from "./SVGClient";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -100,13 +100,7 @@ const Footer = () => {
 
           {/* Company Info */}
           <div className="space-y-6">
-            <Image
-              src="/api/placeholder/150/40"
-              alt="Forcythe"
-              width={150}
-              height={32}
-              className="h-8 w-auto"
-            />
+            <SVGClient src="../svg/logo.svg" />
             <p className="text-gray-400 leading-relaxed">
               We are the growth company for businesses looking to scale. We are
               dedicated to transforming businesses with bespoke digital

@@ -1,35 +1,8 @@
-// // components/Navbar.js
-// import React from "react";
-// import Link from "next/link";
-
-// const Navbar = () => {
-//   return (
-//     <header className="w-full bg-white shadow">
-//       <nav className="container mx-auto flex items-center justify-between py-4 px-4">
-//         <div className="font-bold text-xl">
-//           {/* Replace with your own logo or text */}
-//           <Link href="/">ForcytheClone</Link>
-//         </div>
-//         <ul className="flex space-x-6">
-//           <li>
-//             <Link href="/about">About</Link>
-//           </li>
-//           <li>
-//             <Link href="/services">Services</Link>
-//           </li>
-//           <li>
-//             <Link href="/contact">Contact</Link>
-//           </li>
-//         </ul>
-//       </nav>
-//     </header>
-//   );
-// };
-
-// export default Navbar;
 "use client";
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import BookCallButton from "./BookCallButton";
+import SVGClient from "./SVGClient";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,11 +16,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-[#020817] px-4 py-4">
+    <nav className="bg-[#020817] px-4 py-4 relative">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <span className="text-white text-xl font-semibold">© forcythe</span>
+          <SVGClient src="../svg/logo.svg" />
         </div>
 
         {/* Desktop Navigation */}
@@ -65,9 +38,7 @@ const Navbar = () => {
 
         {/* Book a Call Button */}
         <div className="hidden md:block">
-          <button className="text-white px-6 py-2 rounded-full border border-dashed hover:bg-white hover:text-black transition-colors">
-            Book a Call
-          </button>
+          <BookCallButton />
         </div>
 
         {/* Mobile Menu Button */}
@@ -83,8 +54,8 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-[#020817] py-4">
-          <div className="flex flex-col space-y-4 px-4">
+        <div className="md:hidden fixed top-16 left-0 right-0 bg-[#020817] py-4 z-50 border-t border-gray-800">
+          <div className="flex flex-col space-y-4 px-4 max-w-7xl mx-auto">
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -94,9 +65,9 @@ const Navbar = () => {
                 {item.label}
               </a>
             ))}
-            <button className="text-white px-6 py-2 rounded-full border border-dashed hover:bg-white hover:text-black transition-colors w-fit">
-              Book a Call
-            </button>
+            <div className="pt-2">
+              <BookCallButton />
+            </div>
           </div>
         </div>
       )}
