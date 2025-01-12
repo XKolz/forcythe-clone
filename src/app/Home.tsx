@@ -8,9 +8,6 @@ import ScrollingShowcase from "@/components/ScrollingShowcase";
 import StatsSection from "@/components/StatsSection";
 import TestimonialTabs from "@/components/TestimonialTabs";
 import React from "react";
-// Navbar
-// Footer
-// Hero
 
 export default function Home() {
   return (
